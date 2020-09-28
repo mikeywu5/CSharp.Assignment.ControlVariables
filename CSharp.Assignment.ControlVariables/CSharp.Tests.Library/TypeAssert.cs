@@ -549,7 +549,7 @@ namespace CSharp.Tests.Library
                 var e = expected[i];
                 var a = actual[i];
                 // Assert.AreEqual(e.Name, a.Name, $"The name does not match in Parameter {i}.");
-                if (e.Ref && (!a.IsIn || !a.IsOut))
+                if (e.Ref && !a.ParameterType.IsByRef)
                 {
                     sb.Append($" The parameter \"{e.Name}\" requires a ref keyword.");
                 }
